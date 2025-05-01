@@ -12,7 +12,7 @@ __pycache__/
 # Optional: Ignore data/output folders if they are large or generated
 # vector_stores/
 # uploaded_pdfs/
-# synthetic_data/ # Only if you don't want to track this data
+synthetic_data/
 
 # Optional: Ignore environment variable files
 .env
