@@ -1,0 +1,26 @@
+# Core Streamlit library
+streamlit
+
+# LangChain core and integration packages
+langchain>=0.2.0 # Use a recent version
+langchain-google-genai>=1.0.0 # For Gemini integration
+langchain-community # For loaders, vector stores etc.
+
+# Google Generative AI SDK (dependency for langchain-google-genai)
+google-generativeai
+
+# Vector Store
+chromadb>=0.4.0 # Check for latest compatible version
+
+# PDF Loader
+pypdf
+streamlit
+
+# Embedding Model
+sentence-transformers>=2.2.0 # Or specific version for the model
+
+# Optional: For environment variable handling if not using secrets.toml
+# python-dotenv
+
+# Add for BM25 keyword search
+rank_bm25
