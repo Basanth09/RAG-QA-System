@@ -14,7 +14,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 # --- Updated Imports based on Deprecation Warnings ---
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
-from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyMuPDFLoader
 # --- Core LangChain components ---
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.prompts import PromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate, ChatPromptTemplate
@@ -195,9 +195,9 @@ if uploaded_file:
         with st.status(f"Processing {uploaded_file.name} (Parent Document Retriever)..."):
             try:
                 st.write(f"📄 Reading PDF...")
-                loader = PyPDFLoader(st.session_state.processed_pdf_path)
+                loader = PyMuPDFLoader(st.session_state.processed_pdf_path)
                 docs = loader.load()
-                if not docs: raise ValueError("PyPDFLoader failed to load data.")
+                if not docs: raise ValueError("PyMuPDFLoader failed to load data.")
 
                 # --- Initialize PDR Components ---
                 parent_store = st.session_state.docstore
@@ -288,7 +288,7 @@ if uploaded_file:
 
                      if not list(parent_store.yield_keys()):
                          logger.info("Populating InMemory docstore on re-initialization...")
-                         loader_temp = PyPDFLoader(st.session_state.processed_pdf_path)
+                         loader_temp = PyMuPDFLoader(st.session_state.processed_pdf_path)
                          docs_temp = loader_temp.load()
                          if docs_temp:
                               pdr.add_documents(docs_temp, ids=None, add_to_docstore=True)

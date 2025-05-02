@@ -15,6 +15,7 @@ chromadb>=0.4.0 # Check for latest compatible version
 # PDF Loader
 pypdf
 streamlit
+pymupdf # For PDF handling (Newerreplacement for pypdf)
 
 # Embedding Model
 sentence-transformers>=2.2.0 # Or specific version for the model
